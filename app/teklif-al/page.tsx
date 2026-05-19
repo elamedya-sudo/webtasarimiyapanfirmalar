@@ -7,7 +7,7 @@ export default function TeklifAlPage() {
   const router = useRouter();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [countdown, setCountdown] = useState(3); // 3 saniyelik geri sayım
+  const [countdown, setCountdown] = useState(3);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -18,19 +18,18 @@ export default function TeklifAlPage() {
     message: '',
   });
 
-  // Başarıyla gönderildiğinde geri sayımı başlat ve yönlendir
   useEffect(() => {
     if (isSubmitted && countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
     } else if (isSubmitted && countdown === 0) {
-      router.push('/'); // Süre bitince ana sayfaya uçurur
+      router.push('/');
     }
   }, [isSubmitted, countdown, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    loading || setLoading(true);
 
     try {
       const res = await fetch('/api/contact', {
@@ -52,7 +51,6 @@ export default function TeklifAlPage() {
     }
   };
 
-  // 1. BAŞARI EKRANI (Form başarıyla gönderilirse burası görünür)
   if (isSubmitted) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-gray-50 px-4">
@@ -72,12 +70,11 @@ export default function TeklifAlPage() {
     );
   }
 
-  // 2. ORİJİNAL FORM SAYFASI
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="container mx-auto max-w-5xl bg-white rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
         
-        {/* Sol Taraf: Açıklama ve Bilgilendirme Alanı */}
+        {/* Sol Açıklama Alanı */}
         <div className="md:col-span-5 bg-gradient-to-br from-[#933c81] to-[#df6e32] p-10 text-white flex flex-col justify-between">
           <div className="space-y-6">
             <h1 className="text-3xl font-bold leading-tight">Yeni Bir Proje Başlatın</h1>
@@ -95,7 +92,7 @@ export default function TeklifAlPage() {
           </div>
         </div>
 
-        {/* Sağ Taraf: Formun Kendisi */}
+        {/* Sağ Form Alanı */}
         <form onSubmit={handleSubmit} className="md:col-span-7 p-10 space-y-6">
           <h2 className="text-xl font-bold text-gray-800 mb-4">Proje Talep Formu</h2>
           

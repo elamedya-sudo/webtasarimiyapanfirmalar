@@ -1,11 +1,11 @@
-// app/layout.tsx
 import './globals.css'; 
-import Header from './components/Header'; // <-- Değişiklik burada
-import Footer from './components/Footer'; // <-- Değişiklik burada
+import Header from './components/Header';
+import Footer from './components/Footer';
+import FloatingActions from './components/FloatingActions';
 
 export const metadata = {
   title: 'Ela Teknoloji | Web Tasarımı Yapan Firmalar',
-  description: 'Kurumsal web tasarım ve mühendislik çözümleri.',
+  description: 'Kurumsal web tasarım, modern mühendislik çözümleri ve GEO altyapısı.',
 };
 
 export default function RootLayout({
@@ -22,6 +22,7 @@ export default function RootLayout({
           {children}
         </main>
         
+        <FloatingActions />
         <Footer />
       </body>
     </html>

@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, company, phone, email, service, message } = body;
 
-    // 1. SİZE GELECEK OLAN BİLDİRİM MAİLİ (Admin Bildirimi)
+    // 1. SİZE GELECEK OLA BİLDİRİM MAİLİ (Admin Bildirimi)
     const adminRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: 'Ela Teknoloji <info@webtasarimiyapanfirmalar.com>',
-        to: email, // Müşterinin formda girdiği mail adresi
+        to: email,
         subject: `Talebiniz Alındı - Ela Teknoloji`,
         html: `
           <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; padding: 30px; border-radius: 8px; background-color: #ffffff;">
@@ -78,18 +78,13 @@ export async function POST(request: Request) {
       })
     });
 
-    // Domain doğrulaması henüz tamamlanmadıysa müşteriye giden mail hata verebilir, 
-    // bu durumun genel form akışını bozmaması için hatayı sadece konsola basıyoruz.
     if (!customerRes.ok) {
-      console.error("Müşteri yanıt maili gönderilemedi. Resend üzerinde domain onayı gerekebilir.");
+      console.error("Müşteri yanıt maili gönderilemedi. DNS yayılımı bekleniyor olabilir.");
     }
 
     return NextResponse.json({ success: true, message: 'İşlem başarıyla tamamlandı.' });
   } catch (error) {
     console.error("Sistem Hatası:", error);
-    return NextResponse.json({ 
-      success: false, 
-      error: 'İşlem tamamlanamadı.' 
-    }, { status: 500 });
+    return NextResponse.json({ success: false, error: 'İşlem tamamlanamadı.' }, { status: 500 });
   }
 }

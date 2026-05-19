@@ -8,7 +8,7 @@ export default function Header() {
         {/* Logo Alanı */}
         <Link href="/" className="flex items-center">
           <Image 
-            src="/logo.png"
+            src="/logo.png" 
             alt="Ela Teknoloji Logo" 
             width={180} 
             height={48} 
@@ -18,11 +18,12 @@ export default function Header() {
         </Link>
 
         {/* Masaüstü Menü */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-700">
+        <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700">
           <Link href="/" className="hover:text-[#df6e32] transition-colors">Ana Sayfa</Link>
           <Link href="/kurumsal" className="hover:text-[#df6e32] transition-colors">Kurumsal</Link>
           <Link href="/hizmetler" className="hover:text-[#df6e32] transition-colors">Hizmetlerimiz</Link>
-          <Link href="/projeler" className="hover:text-[#df6e32] transition-colors">Projeler</Link>
+          <Link href="/basari-hikayeleri" className="hover:text-[#df6e32] transition-colors">Başarı Hikayeleri</Link>
+          <Link href="/blog" className="hover:text-[#df6e32] transition-colors">Blog</Link>
           <Link href="/iletisim" className="hover:text-[#df6e32] transition-colors">İletişim</Link>
         </nav>
 

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-slate-900 text-gray-300 py-12 border-t border-slate-800 mt-auto">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
         
-        {/* Marka ve Vizyon (Lokal Optimize Logo) */}
+        {/* Marka ve Vizyon */}
         <div className="space-y-4">
           <div className="relative w-48 h-12">
             <Image 
