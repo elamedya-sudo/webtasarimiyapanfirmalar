@@ -14,7 +14,7 @@ export default function TeklifAlPage() {
     company: '',
     phone: '',
     email: '',
-    service: 'Web Tasarım & Next.js Geliştirme',
+    service: 'Next.js & Headless Web Geliştirme', // Başlangıç değeri güncellendi
     message: '',
   });
 
@@ -55,9 +55,7 @@ export default function TeklifAlPage() {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-gray-50 px-4">
         <div className="max-w-md w-full bg-white border border-gray-100 p-8 rounded-2xl shadow-xl text-center space-y-6">
-          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto text-green-500 text-4xl animate-bounce">
-            ✓
-          </div>
+          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto text-green-500 text-4xl animate-bounce">✓</div>
           <h2 className="text-2xl font-bold text-gray-800">Mesajınız Başarıyla İletildi!</h2>
           <p className="text-gray-600 text-sm leading-relaxed">
             Talebiniz mühendislik ekibimize ulaştı. Hem size hem de ekibimize bilgilendirme mailleri gönderildi.
@@ -99,71 +97,50 @@ export default function TeklifAlPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">Adınız Soyadınız *</label>
-              <input 
-                type="text" required
-                className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]"
-                value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})}
-              />
+              <input type="text" required className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">Firma Adı</label>
-              <input 
-                type="text"
-                className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]"
-                value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})}
-              />
+              <input type="text" className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">Telefon Numaranız *</label>
-              <input 
-                type="tel" required
-                className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]"
-                value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              />
+              <input type="tel" required className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">E-Posta Adresiniz *</label>
-              <input 
-                type="email" required
-                className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]"
-                value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
+              <input type="email" required className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">İlgilendiğiniz Hizmet</label>
+            {/* 6'LI YENİ SELECT YAPISI */}
             <select 
               className="w-full px-4 py-2.5 border rounded-lg text-sm bg-white focus:outline-none focus:border-[#933c81]"
               value={formData.service} onChange={(e) => setFormData({...formData, service: e.target.value})}
             >
-              <option>Web Tasarım & Next.js Geliştirme</option>
-              <option>Kurumsal Dijital Kimlik Tasarımı</option>
-              <option>SEO & GEO Mühendisliği</option>
-              <option>Google Ads & Dijital Pazarlama Yönetimi</option>
+              <option value="Next.js & Headless Web Geliştirme">Next.js & Headless Web Geliştirme</option>
+              <option value="Kurumsal Dijital Kimlik Tasarımı">Kurumsal Dijital Kimlik Tasarımı</option>
+              <option value="SEO & GEO Mühendisliği">SEO & GEO Mühendisliği</option>
+              <option value="Google Ads & Dijital Pazarlama">Google Ads & Dijital Pazarlama</option>
+              <option value="E-Ticaret & Özel Dönüşüm Çözümleri">E-Ticaret & Özel Dönüşüm Çözümleri</option>
+              <option value="Özel SaaS & CRM Yazılımları">Özel SaaS & CRM Yazılımları</option>
             </select>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-600 uppercase mb-2">Proje Detayları / Mesajınız *</label>
-            <textarea 
-              rows={4} required
-              className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]"
-              value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})}
-            />
+            <textarea rows={4} required className="w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-[#933c81]" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} />
           </div>
 
-          <button 
-            type="submit" disabled={loading}
-            className="w-full bg-[#933c81] text-white py-3 rounded-lg font-medium hover:bg-opacity-95 transition-all text-sm shadow-md"
-          >
+          <button type="submit" disabled={loading} className="w-full bg-[#933c81] text-white py-3 rounded-lg font-medium hover:bg-opacity-95 transition-all text-sm shadow-md">
             {loading ? 'Gönderiliyor...' : 'Talebi Güvenle Gönder'}
           </button>
         </form>
-
       </div>
     </div>
   );
