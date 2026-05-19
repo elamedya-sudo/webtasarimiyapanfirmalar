@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -10,7 +9,7 @@ export default function HomePage() {
     company: '',
     phone: '',
     email: '',
-    service: 'Next.js Headless Mimari',
+    service: 'Next.js & Headless Web Geliştirme',
     message: '',
   });
 
@@ -27,7 +26,14 @@ export default function HomePage() {
 
       if (res.ok) {
         alert('Talebiniz başarıyla alındı. Ekibimiz sizinle iletişime geçecektir.');
-        setFormData({ name: '', company: '', phone: '', email: '', service: 'Next.js Headless Mimari', message: '' });
+        setFormData({ 
+          name: '', 
+          company: '', 
+          phone: '', 
+          email: '', 
+          service: 'Next.js & Headless Web Geliştirme', 
+          message: '' 
+        });
       } else {
         alert('Bir hata oluştu, lütfen tekrar deneyin.');
       }
@@ -41,8 +47,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       
-      {/* 1. KAHRAMAN (HERO) ALANI VE KUTULU HİZMETLER */}
-      <section className="pt-24 pb-16 px-4">
+      {/* 1. KAHRAMAN (HERO) ALANI VE 6'LI HİZMET KUTULARI */}
+      <section className="pt-24 pb-20 px-4">
         <div className="container mx-auto max-w-7xl">
           
           {/* Üst Başlık */}
@@ -55,62 +61,85 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Kutulu Alanlar (Hizmet Kartları) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Orijinal 6'lı Kutulu Alanlar */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
             {/* Kutu 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
               <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
                 ⚛️
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Next.js Mimari</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Next.js & Headless Web Geliştirme</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Geleneksel CMS sınırlarını aşıyor, ultra hızlı ve Headless mimariyle ölçeklenebilir modern web projeleri geliştiriyoruz.
+                Geleneksel CMS sınırlarını aşıyor, ultra hızlı, güvenli ve Headless mimariyle ölçeklenebilir modern web projeleri geliştiriyoruz.
               </p>
             </div>
 
             {/* Kutu 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
-              <div className="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                🤖
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                🎨
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">GEO & SEO</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Kurumsal Dijital Kimlik Tasarımı</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Sadece Google için değil, yapay zeka motorları (Generative Engine Optimization) için de optimize edilmiş kusursuz altyapılar.
+                Markanızın vizyonunu ve gücünü dijitale aktaran modern, özgün, kullanıcı deneyimi (UI/UX) odaklı arayüz tasarımları.
               </p>
             </div>
 
             {/* Kutu 3 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                📈
+              <div className="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                🤖
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Google Ads</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">SEO & GEO Mühendisliği</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Yüksek bütçeli reklamlarınızı nokta atışı stratejilerle yönetiyor, ROAS (Reklam Getirisi) oranlarınızı maksimize ediyoruz.
+                Sadece klasik arama motorları için değil, yeni nesil yapay zeka motorları (Generative Engine Optimization) için optimize edilmiş kusursuz altyapılar.
               </p>
             </div>
 
             {/* Kutu 4 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+              <div className="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                📈
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Google Ads & Dijital Pazarlama</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Yüksek bütçeli reklam süreçlerinizi veri analitiğiyle yönetiyor, nokta atışı dönüşüm optimizasyonlarıyla ROAS oranlarınızı maksimize ediyoruz.
+              </p>
+            </div>
+
+            {/* Kutu 5 */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+              <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                🛍️
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">E-Ticaret & Özel Dönüşüm Çözümleri</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Gelişmiş katalog modlarından global ölçekli headless e-ticaret sistemlerine kadar, satış ve yüksek performans odaklı mağaza altyapıları.
+              </p>
+            </div>
+
+            {/* Kutu 6 */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
               <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
                 💻
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">SaaS Çözümleri</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Özel SaaS & CRM Yazılımları</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Süreçlerinizi hızlandıracak, işletmenize özel tasarlanmış bulut tabanlı CRM ve iş yönetim yazılımları kodluyoruz.
+                İşletmenizin iç süreçlerini, teklif, muhasebe ve müşteri yönetimini tek bir noktadan optimize eden bulut tabanlı kurumsal paneller.
               </p>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
-      {/* 2. KOYU RENKLİ FORM VE VİZYON ALANI */}
+      {/* 2. KOYU RENKLİ FORM VE DENGELENMİŞ VİZYON ALANI */}
       <section className="bg-[#0b1120] py-20 border-t border-slate-800">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            {/* Sol Taraf: Vizyon Metni (Adresler Çıkarıldı, Sadeleştirildi) */}
+            {/* Sol Taraf: Dengelenmiş Vizyon Metni */}
             <div className="space-y-8 text-white">
               <h2 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                 Altyapınızı Ölçeklendirmeye Hazır mısınız?
@@ -123,15 +152,15 @@ export default function HomePage() {
                 <p>
                   Geleneksel web standartlarının ötesine geçerek; <strong className="text-white">Next.js mimarisiyle</strong> performans odaklı sistemler kuruyor ve <strong className="text-white">Generative Engine Optimization (GEO)</strong> stratejileriyle dijital vitrininizi geleceğe hazırlıyoruz.
                 </p>
-                <ul className="space-y-4 pt-4">
+                <ul className="space-y-4 pt-4 text-base">
                   <li className="flex items-center gap-3">
-                    <span className="text-[#df6e32]">✓</span> Yüksek Performanslı Headless Sistemler
+                    <span className="text-[#df6e32]">✓</span> Ultra Hızlı ve Performans Odaklı Headless Mimariler
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="text-[#df6e32]">✓</span> Veriye Dayalı Dijital Pazarlama (ROAS Odaklı)
+                    <span className="text-[#df6e32]">✓</span> Yapay Zeka Arama Motorlarına (GEO) Tam Uyum
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="text-[#df6e32]">✓</span> Kesintisiz Müşteri İletişimi ve CRM Entegrasyonu
+                    <span className="text-[#df6e32]">✓</span> Süreçlerinizi Otomatikleştiren Özel Bulut Yazılımlar
                   </li>
                 </ul>
                 <p className="pt-4 text-sm text-gray-400 italic">
@@ -140,7 +169,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Sağ Taraf: Form Kartı */}
+            {/* Sağ Taraf: Yenilenmiş Form Kartı */}
             <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 p-8 lg:p-10 rounded-2xl shadow-2xl">
               <h3 className="text-2xl font-bold text-white mb-8">Proje Detaylarını Paylaşın</h3>
               
@@ -171,14 +200,17 @@ export default function HomePage() {
                   />
                 </div>
 
+                {/* 6 Hizmetin Tamamını Barındıran Senkronize Select */}
                 <select 
-                  className="w-full bg-slate-800/80 border border-slate-700 text-white px-5 py-3.5 rounded-xl focus:outline-none focus:border-[#df6e32] focus:ring-1 focus:ring-[#df6e32] transition-all appearance-none"
+                  className="w-full bg-slate-800/80 border border-slate-700 text-white px-5 py-3.5 rounded-xl focus:outline-none focus:border-[#df6e32] focus:ring-1 focus:ring-[#df6e32] transition-all appearance-none text-sm"
                   value={formData.service} onChange={(e) => setFormData({...formData, service: e.target.value})}
                 >
-                  <option value="Next.js Headless Mimari">Next.js Headless Mimari</option>
-                  <option value="SaaS & Özel CRM Geliştirme">SaaS & Özel CRM Geliştirme</option>
-                  <option value="GEO & Arama Motoru Optimizasyonu">GEO & Arama Motoru Optimizasyonu</option>
+                  <option value="Next.js & Headless Web Geliştirme">Next.js & Headless Web Geliştirme</option>
+                  <option value="Kurumsal Dijital Kimlik Tasarımı">Kurumsal Dijital Kimlik Tasarımı</option>
+                  <option value="SEO & GEO Mühendisliği">SEO & GEO Mühendisliği</option>
                   <option value="Google Ads & Dijital Pazarlama">Google Ads & Dijital Pazarlama</option>
+                  <option value="E-Ticaret & Özel Dönüşüm Çözümleri">E-Ticaret & Özel Dönüşüm Çözümleri</option>
+                  <option value="Özel SaaS & CRM Yazılımları">Özel SaaS & CRM Yazılımları</option>
                 </select>
 
                 <textarea 
