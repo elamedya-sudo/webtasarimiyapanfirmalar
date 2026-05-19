@@ -1,7 +1,7 @@
 // app/layout.tsx
-import './globals.css'; // Sende bu import zaten vardır, kendi yoluna göre bırak
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import './globals.css'; 
+import Header from './components/Header'; // <-- Değişiklik burada
+import Footer from './components/Footer'; // <-- Değişiklik burada
 
 export const metadata = {
   title: 'Ela Teknoloji | Web Tasarımı Yapan Firmalar',
@@ -18,7 +18,6 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Header />
         
-        {/* Sayfa içerikleri bu main etiketinin içine gelir */}
         <main className="flex-grow">
           {children}
         </main>
