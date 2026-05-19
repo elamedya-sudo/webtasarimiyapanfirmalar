@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -45,23 +46,58 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       
-      {/* 1. KAHRAMAN (HERO) ALANI VE 6'LI HİZMET KUTULARI */}
-      <section className="pt-24 pb-20 px-4">
+      {/* 1. HERO (GİRİŞ / KARŞILAMA) ALANI */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-28 pb-20 px-4">
+        {/* Arka Plan Hafif Estetik Efekt */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-30">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-[#933c81]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#df6e32]/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto max-w-5xl text-center relative z-10 space-y-8">
+          <div className="inline-flex items-center gap-2 bg-purple-50 text-[#933c81] text-xs font-semibold px-4 py-1.5 rounded-full border border-purple-100">
+            <span>🚀</span> Yeni Nesil Headless & Mühendislik Yaklaşımı
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.15]">
+            Geleceğin Web Mimarisini <br />
+            <span className="bg-gradient-to-r from-[#933c81] to-[#df6e32] bg-clip-text text-transparent">
+              Bugün İnşa Ediyoruz
+            </span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Standart hazır temalara ve hantal sistemlere veda edin. Modern yazılım mühendisliği, GEO uyumu ve veri odaklı stratejilerle markanızı dijitalin zirvesine taşıyoruz.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link 
+              href="/teklif-al"
+              className="bg-gradient-to-r from-[#933c81] to-[#df6e32] text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-base"
+            >
+              Hemen Proje Başlat
+            </Link>
+            <a 
+              href="#hizmetler"
+              className="bg-white border border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-xl hover:bg-gray-50 transition-all text-base shadow-sm"
+            >
+              Uzmanlık Alanlarımız
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. 6'LI HİZMET KUTULARI ALANI */}
+      <section id="hizmetler" className="py-20 px-4 border-t border-gray-100 bg-white">
         <div className="container mx-auto max-w-7xl">
           
-          {/* Üst Başlık */}
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Geleceğin Web Mimarisini <br className="hidden md:block"/> Bugün İnşa Ediyoruz
-            </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Standart temalara ve hantal sistemlere veda edin. Modern mühendislik, GEO uyumu ve veri odaklı stratejilerle markanızı dijitalin zirvesine taşıyoruz.
-            </p>
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Neler Yapıyoruz?</h2>
+            <p className="text-gray-500 text-sm">Kurumsal süreçlerinizi uçtan uca dijitalleştiren profesyonel mühendislik çözümleri.</p>
           </div>
 
-          {/* Orijinal 6'lı Kutulu Alanlar */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Kutu 1 */}
@@ -134,12 +170,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. KOYU RENKLİ FORM VE DENGELENMİŞ VİZYON ALANI */}
+      {/* 3. KOYU RENKLİ DENGELENMİŞ FORM VE VİZYON ALANI */}
       <section className="bg-[#0b1120] py-20 border-t border-slate-800">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            {/* Sol Taraf: Dengelenmiş Vizyon Metni */}
+            {/* Sol Taraf: Özellik Listesi ve Vizyon */}
             <div className="space-y-8 text-white">
               <h2 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                 Altyapınızı Ölçeklendirmeye Hazır mısınız?
@@ -200,7 +236,6 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* 6 Hizmetin Tamamını Barındıran Senkronize Select */}
                 <select 
                   className="w-full bg-slate-800/80 border border-slate-700 text-white px-5 py-3.5 rounded-xl focus:outline-none focus:border-[#df6e32] focus:ring-1 focus:ring-[#df6e32] transition-all appearance-none text-sm"
                   value={formData.service} onChange={(e) => setFormData({...formData, service: e.target.value})}
