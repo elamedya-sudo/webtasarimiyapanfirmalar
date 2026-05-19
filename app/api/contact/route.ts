@@ -5,16 +5,16 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, company, phone, email, service, message } = body;
 
-    // Resend'in test hesabı kuralları gereği, 'to' adresi kayıt olunan e-posta olmalıdır.
-    const res = await fetch('https://api.resend.com/emails', {
+    // 1. SİZE GELECEK OLAN BİLDİRİM MAİLİ (Admin Bildirimi)
+    const adminRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Ela Teknoloji Web Talep <onboarding@resend.dev>',
-        to: 'elamedya@gmail.com', // Mail artık bu adrese düşecek
+        from: 'Ela Teknoloji Web Talep <info@webtasarimiyapanfirmalar.com>',
+        to: 'elamedya@gmail.com',
         subject: `🔥 Yeni Proje Talebi: ${company} - ${name}`,
         html: `
           <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
@@ -37,18 +37,59 @@ export async function POST(request: Request) {
       })
     });
 
-    if (!res.ok) {
-      const errorResponse = await res.json();
-      console.error("Resend API Hatası:", errorResponse);
-      throw new Error('Resend API bağlantısı başarısız oldu.');
+    if (!adminRes.ok) {
+      throw new Error('Yönetici maili gönderilemedi.');
     }
 
-    return NextResponse.json({ success: true, message: 'Mail başarıyla iletildi.' });
+    // 2. MÜŞTERİYE GİDECEK OLAN OTOMATİK YANIT MAİLİ
+    const customerRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Ela Teknoloji <info@webtasarimiyapanfirmalar.com>',
+        to: email, // Müşterinin formda girdiği mail adresi
+        subject: `Talebiniz Alındı - Ela Teknoloji`,
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; padding: 30px; border-radius: 8px; background-color: #ffffff;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <img src="https://www.websitesiyapanfirmalar.net/wp-content/uploads/2025/12/logo.png" alt="Ela Teknoloji Logo" style="max-width: 200px; height: auto;" />
+            </div>
+            
+            <h2 style="color: #2c3e50; text-align: center; font-size: 24px; margin-bottom: 20px;">Talebiniz Bize Ulaştı!</h2>
+            
+            <p style="font-size: 16px; line-height: 1.6; color: #555;">Merhaba <strong>${name}</strong>,</p>
+            <p style="font-size: 16px; line-height: 1.6; color: #555;"><strong>${service}</strong> hizmetimiz ile ilgili iletmiş olduğunuz talebinizi başarıyla teslim aldık. Ekibimiz proje detaylarınızı inceleyerek en kısa sürede sizinle iletişime geçecektir.</p>
+            <p style="font-size: 16px; line-height: 1.6; color: #555;">Bizi tercih ettiğiniz için teşekkür ederiz.</p>
+            
+            <hr style="border: none; border-top: 1px solid #eaeaea; margin: 30px 0;" />
+            
+            <div style="font-size: 14px; color: #7f8c8d; line-height: 1.8;">
+              <strong>Ela Teknoloji ve Tasarım</strong><br/>
+              📍 Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk. No: 3/1 Orkide Apt. Ataşehir - İSTANBUL<br/>
+              📞 +90 (216) 576 58 26<br/>
+              📱 WhatsApp: (850) 302 84 76<br/>
+              ✉️ elamedya@gmail.com
+            </div>
+          </div>
+        `
+      })
+    });
+
+    // Domain doğrulaması henüz tamamlanmadıysa müşteriye giden mail hata verebilir, 
+    // bu durumun genel form akışını bozmaması için hatayı sadece konsola basıyoruz.
+    if (!customerRes.ok) {
+      console.error("Müşteri yanıt maili gönderilemedi. Resend üzerinde domain onayı gerekebilir.");
+    }
+
+    return NextResponse.json({ success: true, message: 'İşlem başarıyla tamamlandı.' });
   } catch (error) {
-    console.error("Mail Gönderme Hatası:", error);
+    console.error("Sistem Hatası:", error);
     return NextResponse.json({ 
       success: false, 
-      error: 'Mail gönderilemedi, lütfen sunucu ayarlarını kontrol edin.' 
+      error: 'İşlem tamamlanamadı.' 
     }, { status: 500 });
   }
 }
