@@ -6,21 +6,24 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, company, phone, email, service, message } = body;
 
-    // SMTP Sunucu Ayarlarınız
+    // SMTP Sunucu Ayarları - Orijinal Hosting Bilgilerin
     const transporter = nodemailer.createTransport({
-      host: "mail.webtasarimiyapanfirmalar.com", // Mevcut hosting mail sunucunuz
+      host: "mail.webtasarimiyapanfirmalar.com", 
       port: 465,
       secure: true, 
       auth: {
-        user: "info@webtasarimiyapanfirmalar.com", // Gönderici adres
-        pass: "vLTBf2W7YeABzwh", // Bu mailin şifresi
+        user: "info@webtasarimiyapanfirmalar.com",
+        pass: "vLTBf2W7YeABzwh",
       },
+      // Hosting maillerinde bazen sertifika hatası olabiliyor, 
+      // çalışmazsa aşağıdaki satırı 'tls' bloğunun içine ekleyebilirsin:
+      // tls: { rejectUnauthorized: false }
     });
 
-    // Gönderilecek Mailin Tasarımı
+    // Orijinal Profesyonel Mail Tasarımın
     const mailOptions = {
       from: '"Ela Teknoloji Web Talep" <info@webtasarimiyapanfirmalar.com>',
-      to: 'hytasarim@gmail.com', // Size gelecek adres
+      to: 'hytasarim@gmail.com', 
       subject: `🔥 Yeni Proje Talebi: ${company} - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
@@ -47,6 +50,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, message: 'Mail başarıyla iletildi.' });
   } catch (error) {
     console.error("Mail Gönderme Hatası:", error);
-    return NextResponse.json({ success: false, error: 'Mail gönderilemedi.' }, { status: 500 });
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Mail gönderilemedi, lütfen sunucu ayarlarını kontrol edin.' 
+    }, { status: 500 });
   }
 }
