@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, company, phone, email, service, message } = body;
 
-    // Herhangi bir ek npm paketi gerektirmeden doğrudan Resend REST API'sine istek atılır.
+    // Resend'in test hesabı kuralları gereği, 'to' adresi kayıt olunan e-posta olmalıdır.
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -13,8 +13,8 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Ela Teknoloji Web Talep <onboarding@resend.dev>', // Resend üzerinde domain doğrulanana kadar bu varsayılan adres kullanılır
-        to: 'hytasarim@gmail.com',
+        from: 'Ela Teknoloji Web Talep <onboarding@resend.dev>',
+        to: 'elamedya@gmail.com', // Mail artık bu adrese düşecek
         subject: `🔥 Yeni Proje Talebi: ${company} - ${name}`,
         html: `
           <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
