@@ -1,17 +1,23 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-gray-300 py-12 border-t border-slate-800 mt-auto">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
         
-        {/* Marka ve Vizyon */}
+        {/* Marka ve Vizyon (Lokal Optimize Logo) */}
         <div className="space-y-4">
-          <img 
-            src="/logo.png"
-            alt="Ela Teknoloji" 
-            className="w-48 brightness-0 invert opacity-90" 
-          />
+          <div className="relative w-48 h-12">
+            <Image 
+              src="/logo.png" 
+              alt="Ela Teknoloji" 
+              fill
+              sizes="(max-width: 768px) 192px, 192px"
+              className="brightness-0 invert opacity-90 object-contain object-left" 
+              priority={false}
+            />
+          </div>
           <p className="text-sm leading-relaxed text-gray-400 mt-4">
             Yeni nesil mühendislik yaklaşımları ve Generative Engine Optimization (GEO) stratejileriyle dijital vitrininizi geleceğe taşıyoruz.
           </p>
