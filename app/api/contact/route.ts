@@ -9,15 +9,16 @@ export async function POST(request: Request) {
     // SMTP Sunucu Ayarları - Orijinal Hosting Bilgilerin
     const transporter = nodemailer.createTransport({
       host: "mail.webtasarimiyapanfirmalar.com", 
-      port: 465,
-      secure: true, 
+      port: 587, // 465 yerine 587'yi deneyelim
+      secure: false, // 587 için false olmalı
       auth: {
         user: "info@webtasarimiyapanfirmalar.com",
         pass: "vLTBf2W7YeABzwh",
       },
-      // Hosting maillerinde bazen sertifika hatası olabiliyor, 
-      // çalışmazsa aşağıdaki satırı 'tls' bloğunun içine ekleyebilirsin:
-      // tls: { rejectUnauthorized: false }
+      tls: {
+        rejectUnauthorized: false // Hosting sertifikası uyuşmazlığı varsa bunu aşar
+      },
+      connectionTimeout: 10000, // 10 saniye bekleme süresi
     });
 
     // Orijinal Profesyonel Mail Tasarımın
