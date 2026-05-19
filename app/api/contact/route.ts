@@ -1,30 +1,18 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
+    // 1. Gelen veriyi al
     const body = await request.json();
     const { name, company, phone, email, service, message } = body;
 
-    // SMTP Sunucu Ayarları - Orijinal Hosting Bilgilerin
-    const transporter = nodemailer.createTransport({
-      host: "mail.webtasarimiyapanfirmalar.com", 
-      port: 587, // 465 yerine 587'yi deneyelim
-      secure: false, // 587 için false olmalı
-      auth: {
-        user: "info@webtasarimiyapanfirmalar.com",
-        pass: "vLTBf2W7YeABzwh",
-      },
-      tls: {
-        rejectUnauthorized: false // Hosting sertifikası uyuşmazlığı varsa bunu aşar
-      },
-      connectionTimeout: 10000, // 10 saniye bekleme süresi
-    });
-
-    // Orijinal Profesyonel Mail Tasarımın
-    const mailOptions = {
-      from: '"Ela Teknoloji Web Talep" <info@webtasarimiyapanfirmalar.com>',
-      to: 'hytasarim@gmail.com', 
+    // 2. Maili gönder
+    const data = await resend.emails.send({
+      from: 'Ela Teknoloji <onboarding@resend.dev>', // Resend panelinden domainini onaylayınca kendi mailinle değiştirebilirsin
+      to: 'hytasarim@gmail.com',
       subject: `🔥 Yeni Proje Talebi: ${company} - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
@@ -44,11 +32,10 @@ export async function POST(request: Request) {
           </div>
         </div>
       `,
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
-
-    return NextResponse.json({ success: true, message: 'Mail başarıyla iletildi.' });
+    // 3. Başarılı dönüşü döndür
+    return NextResponse.json({ success: true, message: 'Mail başarıyla iletildi.', data });
   } catch (error) {
     console.error("Mail Gönderme Hatası:", error);
     return NextResponse.json({ 
