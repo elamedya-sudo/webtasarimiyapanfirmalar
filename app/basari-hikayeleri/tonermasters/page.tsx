@@ -3,69 +3,56 @@
 export default function TonermastersCase() {
   return (
     <div className="min-h-screen bg-[#0b1120] text-gray-300 py-20 px-4">
-      <article className="max-w-4xl mx-auto">
-        {/* Başlık ve Giriş */}
-        <div className="mb-12 border-b border-slate-800 pb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Tonermasters: E-Ticaretin Mühendislik Operasyonu</h1>
-          <p className="text-xl text-gray-400">Avustralya'nın dijital toner pazarında, bot saldırılarını bertaraf ederek güvenli ve sürdürülebilir büyüme.</p>
-        </div>
+      <article className="max-w-4xl mx-auto space-y-16">
+        
+        {/* Giriş ve Mücadele */}
+        <header className="space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white">Tonermasters: 15 Günde Dijital İflasın Eşiğinden Global Liderliğe</h1>
+          <p className="text-xl text-gray-400 italic">"Alman yazılım firması iflas etti, kodları vermiyorlar. 15 gün içinde taşınmanız lazım." - İşte o meşhur sabah aramasıyla başlayan 15 günlük yazılım operasyonumuzun hikayesi.</p>
+        </header>
 
-        {/* 1. Zorluklar */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Karşılaşılan Teknik Zorluklar</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h4 className="text-red-400 font-bold mb-2">PayPal Bot Saldırıları</h4>
-              <p className="text-sm">Sistem üzerinde sürekli olarak denenen sahte ödeme denemeleri, hem ödeme altyapısını zorluyor hem de envanter yönetimini manipüle ediyordu.</p>
-            </div>
-            <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h4 className="text-orange-400 font-bold mb-2">Performans Darboğazı</h4>
-              <p className="text-sm">Artan reklam bütçesiyle gelen yoğun trafik, monolitik veritabanı sorgularının yanıt süresini (TTFB) kabul edilemez seviyelere çekmişti.</p>
-            </div>
+        {/* 1. Bölüm: 15 Günlük Göç Operasyonu */}
+        <section>
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span className="text-[#933c81]">01.</span> 15 Günlük Yazılım Göçü (Migration)
+          </h2>
+          <p className="mb-4">Eski Alman e-ticaret altyapısı iflas edip kaynak kodlara erişim kapandığında, Tonermasters için saatler işliyordu. Elimizde sadece ürün listeleri, sipariş veritabanı ve üye kayıtları vardı.</p>
+          <div className="bg-slate-900 border-l-4 border-[#933c81] p-6 rounded-r-xl">
+            <ul className="space-y-3 text-sm">
+              <li>✅ <strong>Veri Restorasyonu:</strong> Dağınık formattaki verileri temizleyerek Woo-Commerce altyapısına %100 uyumlu hale getirdik.</li>
+              <li>✅ <strong>Sıfır Kesinti:</strong> Taşınma sürecini, müşterilerin fark etmeyeceği şekilde, 15 gün gibi rekor bir sürede tamamladık.</li>
+            </ul>
           </div>
         </section>
 
-        {/* 2. Çözüm Yaklaşımı */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Ela Teknoloji Mühendislik Çözümü</h2>
-          <div className="space-y-6">
-            <div className="p-6 border-l-4 border-[#933c81] bg-slate-900/30">
-              <h4 className="text-white font-bold mb-2">Katmanlı Güvenlik Mimarisi (Cloudflare WAF)</h4>
-              <p className="text-sm">Bot yönetimini yazılım katmanından ağ katmanına (Edge) taşıdık. Özel WAF kuralları ile şüpheli PayPal API çağrılarını siteye girmeden durdurduk.</p>
-            </div>
-            <div className="p-6 border-l-4 border-[#df6e32] bg-slate-900/30">
-              <h4 className="text-white font-bold mb-2">Verimlilik Odaklı Reklam Yönetimi</h4>
-              <p className="text-sm">Şubat 2026'da gerçekleşen teknik overhaul sonrası, atık bütçeyi (wasted spend) minimize ederek 24.000 AUD olan reklam bütçesini 30.000 AUD seviyesine, risk almadan çıkardık.</p>
-            </div>
+        {/* 2. Bölüm: Siber Güvenlik */}
+        <section>
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span className="text-[#df6e32]">02.</span> PayPal ve Bot Saldırıları ile Mücadele
+          </h2>
+          <p className="mb-4">Sistem stabilize olduktan kısa süre sonra, sitenin PayPal ödeme kapısını hedef alan, dakikada 60 fake sipariş üreten devasa bir saldırı başladı. 2 AUD'lik ürünler üzerinden yapılan bu bot trafiği, tüm e-ticaret akışını felç ediyordu.</p>
+          <div className="bg-slate-900 border-l-4 border-[#df6e32] p-6 rounded-r-xl">
+            <p className="text-sm">Cloudflare tarafında sadece standart güvenlik duvarı yetmedi. <strong>Custom WAF kuralları</strong> yazarak botların ayak izlerini (fingerprint) takip ettik. Eklenti katmanında değil, doğrudan Edge seviyesinde yaptığımız filtrelemelerle sahte sipariş trafiğini %99 oranında engelledik.</p>
           </div>
         </section>
 
-        {/* 3. Sonuçlar ve Metrikler */}
-        <section className="bg-slate-900 rounded-2xl p-10 border border-slate-800 text-center">
-          <h2 className="text-3xl font-bold text-white mb-10">Sonuçlar</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl font-bold text-white">Sıfır</div>
-              <div className="text-xs text-gray-500 uppercase mt-2">Bot İhlali</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">+25%</div>
-              <div className="text-xs text-gray-500 uppercase mt-2">Bütçe Artışı</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">400ms</div>
-              <div className="text-xs text-gray-500 uppercase mt-2">Yanıt Süresi</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">Stabil</div>
-              <div className="text-xs text-gray-500 uppercase mt-2">Dönüşüm Oranı</div>
-            </div>
+        {/* 3. Bölüm: ADS Operasyonunu Devralmak */}
+        <section>
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span className="text-[#10b981]">03.</span> ADS Operasyonunda "Sessiz 9 Ay"
+          </h2>
+          <p className="mb-4">Daha da ilginç olan, firmanın ADS tarafını yöneten "Amerikalı Neal"in, aslında 9 aydır hesaba bakmadığını keşfetmemizdi. Bir sabah kontrol ettiğimizde, Neal'in firmayı devredip gittiğini ve kampanyaların kendi haline bırakıldığını fark ettik.</p>
+          <div className="bg-slate-800 p-6 rounded-xl italic text-gray-400">
+            "Sıfır müdahale ile geçen 9 ayın sonunda, ads hesabını devralarak yeniden kurguladık. Şubat 2026'da 24.000 AUD olan reklam bütçesini, performans verileriyle 30.000 AUD'ye çıkartırken, ROAS oranlarını optimize ettik."
           </div>
         </section>
 
-        <div className="mt-12 text-center">
-           <Link href="/iletisim" className="text-[#df6e32] font-bold hover:underline">Sizin için benzer bir mühendislik operasyonu planlayalım mı? →</Link>
-        </div>
+        {/* Sonuç Bölümü */}
+        <footer className="bg-gradient-to-r from-[#933c81] to-[#df6e32] p-10 rounded-2xl text-center">
+          <h3 className="text-2xl font-bold text-white mb-4">Mühendislik Sadece Kod Yazmak Değildir</h3>
+          <p className="text-white text-lg">Bir sabah gelen telefonla başlayan bu macera, bugün Avustralya pazarında sağlam bir e-ticaret imparatorluğuna dönüştü. Siz de iş süreçlerinizde "yönetilmiyor" veya "iflas ediyor" hissi yaşıyorsanız, mühendislik yaklaşımımızla tanışın.</p>
+        </footer>
+
       </article>
     </div>
   );
