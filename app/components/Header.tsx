@@ -36,7 +36,6 @@ export default function Header() {
             <Image src="/logo.png" alt="Ela Teknoloji Logo" width={180} height={48} className="object-contain" priority />
           </Link>
 
-          {/* MASAÜSTÜ MENÜ (Projeler Geri Geldi) */}
           <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700 items-center">
             <Link href="/" className="hover:text-[#df6e32] transition-colors">Ana Sayfa</Link>
             <Link href="/kurumsal" className="hover:text-[#df6e32] transition-colors">Kurumsal</Link>
@@ -58,6 +57,7 @@ export default function Header() {
             </div>
 
             <Link href="/projeler" className="hover:text-[#df6e32] transition-colors">Projeler</Link>
+            <Link href="/basari-hikayeleri" className="hover:text-[#df6e32] transition-colors">Başarı Hikayeleri</Link>
             <Link href="/blog" className="hover:text-[#df6e32] transition-colors">Blog</Link>
             <Link href="/iletisim" className="hover:text-[#df6e32] transition-colors">İletişim</Link>
           </nav>
@@ -104,8 +104,8 @@ export default function Header() {
             </div>
           </div>
 
-          {/* MOBİL MENÜ (Projeler Geri Geldi) */}
           <Link href="/projeler" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Projeler</Link>
+          <Link href="/basari-hikayeleri" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Başarı Hikayeleri</Link>
           <Link href="/blog" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Blog</Link>
           <Link href="/iletisim" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">İletişim</Link>
         </div>
