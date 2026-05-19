@@ -18,7 +18,6 @@ export default function Header() {
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  // 6'lı Tam Hizmet Listesi
   const services = [
     { name: 'Next.js & Headless Web Geliştirme', href: '/hizmetler/nextjs-headless' },
     { name: 'Kurumsal Dijital Kimlik Tasarımı', href: '/hizmetler/dijital-kimlik' },
@@ -37,6 +36,7 @@ export default function Header() {
             <Image src="/logo.png" alt="Ela Teknoloji Logo" width={180} height={48} className="object-contain" priority />
           </Link>
 
+          {/* MASAÜSTÜ MENÜ (Projeler Geri Geldi) */}
           <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700 items-center">
             <Link href="/" className="hover:text-[#df6e32] transition-colors">Ana Sayfa</Link>
             <Link href="/kurumsal" className="hover:text-[#df6e32] transition-colors">Kurumsal</Link>
@@ -57,7 +57,7 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href="/basari-hikayeleri" className="hover:text-[#df6e32] transition-colors">Başarı Hikayeleri</Link>
+            <Link href="/projeler" className="hover:text-[#df6e32] transition-colors">Projeler</Link>
             <Link href="/blog" className="hover:text-[#df6e32] transition-colors">Blog</Link>
             <Link href="/iletisim" className="hover:text-[#df6e32] transition-colors">İletişim</Link>
           </nav>
@@ -94,7 +94,6 @@ export default function Header() {
             </button>
             <div className={`overflow-hidden transition-all duration-300 flex flex-col ${isServicesOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
               <div className="flex flex-col space-y-4 pl-4 border-l-2 border-[#933c81]/30">
-                {/* Mobildeki 6'lı Hizmet Listesi Ana Sayfaya Gitmeyi Sağlayan Hub Linki İle Birlikte */}
                 <Link href="/hizmetler" onClick={toggleMenu} className="text-[#df6e32] font-bold">Tüm Hizmetler →</Link>
                 {services.map((service, index) => (
                   <Link key={index} href={service.href} onClick={toggleMenu} className="text-gray-600 hover:text-[#933c81] font-medium text-sm">
@@ -105,7 +104,8 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/basari-hikayeleri" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Başarı Hikayeleri</Link>
+          {/* MOBİL MENÜ (Projeler Geri Geldi) */}
+          <Link href="/projeler" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Projeler</Link>
           <Link href="/blog" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">Blog</Link>
           <Link href="/iletisim" onClick={toggleMenu} className="block text-xl font-bold text-gray-800">İletişim</Link>
         </div>

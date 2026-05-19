@@ -23,14 +23,14 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Hızlı Menü */}
+        {/* Hızlı Menü (Linkler Üst Menü ile Senkronize Edildi) */}
         <div>
           <h3 className="text-white font-semibold mb-4 text-lg">Hızlı Menü</h3>
           <ul className="space-y-3 text-sm">
-            <li><Link href="/kurumsal" className="hover:text-white transition-colors">Hakkımızda</Link></li>
-            <li><Link href="/hizmetler" className="hover:text-white transition-colors">Neler Yapıyoruz?</Link></li>
-            <li><Link href="/projeler" className="hover:text-white transition-colors">Portfolyo</Link></li>
-            <li><Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link></li>
+            <li><Link href="/kurumsal" className="hover:text-white transition-colors">Kurumsal</Link></li>
+            <li><Link href="/hizmetler" className="hover:text-white transition-colors">Hizmetlerimiz</Link></li>
+            <li><Link href="/projeler" className="hover:text-white transition-colors">Projeler / Portfolyo</Link></li>
+            <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
           </ul>
         </div>
 
