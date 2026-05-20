@@ -44,20 +44,20 @@ export default function Header() {
             <Image src="/logo.png" alt="Ela Teknoloji Logo" width={180} height={48} className="object-contain" priority />
           </Link>
 
-          {/* MASAÜSTÜ MENÜ - Nunito, Kalın ve Sadece İlk Harfler Büyük */}
+          {/* MASAÜSTÜ MENÜ - Kalın, Tok ve Büyük Harf */}
           <nav className="hidden md:flex gap-6 text-sm items-center">
-            <Link href="/" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Ana Sayfa</Link>
-            <Link href="/kurumsal" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Kurumsal</Link>
+            <Link href="/" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Ana Sayfa</Link>
+            <Link href="/kurumsal" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Kurumsal</Link>
             
             <div className="relative group py-2">
-              <Link href="/hizmetler" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors flex items-center gap-1">
+              <Link href="/hizmetler" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors flex items-center gap-1">
                 Hizmetlerimiz <span className="text-[10px]">▼</span>
               </Link>
               <div className="absolute top-full left-0 mt-0 w-[340px] bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left flex flex-col p-2">
                 {services.map((service, index) => (
                   <Link 
                     key={index} href={service.href}
-                    className="px-4 py-3 text-sm font-bold text-gray-700 hover:text-[#933c81] hover:bg-purple-50 rounded-lg transition-colors"
+                    className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-[#933c81] hover:bg-purple-50 rounded-lg transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -65,15 +65,15 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href="/projeler" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Projeler</Link>
-            <Link href="/basari-hikayeleri" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Başarı Hikayeleri</Link>
-            <Link href="/blog" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Blog</Link>
-            <Link href="/iletisim" className="font-extrabold tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">İletişim</Link>
+            <Link href="/projeler" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Projeler</Link>
+            <Link href="/basari-hikayeleri" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Başarı Hikayeleri</Link>
+            <Link href="/blog" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">Blog</Link>
+            <Link href="/iletisim" className="font-extrabold uppercase tracking-wide text-gray-900 hover:text-[#df6e32] transition-colors">İletişim</Link>
           </nav>
 
           <div className="flex items-center gap-4">
             <div className="hidden md:block">
-              <Link href="/teklif-al" className="bg-[#933c81] text-white px-6 py-2.5 rounded-lg font-extrabold tracking-wide text-sm hover:bg-opacity-90 hover:shadow-lg transition-all">
+              <Link href="/teklif-al" className="bg-[#933c81] text-white px-6 py-2.5 rounded-lg font-extrabold uppercase tracking-wider text-sm hover:bg-opacity-90 hover:shadow-lg transition-all">
                 Proje Başlat
               </Link>
             </div>
@@ -88,25 +88,25 @@ export default function Header() {
 
       <div className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={toggleMenu} />
 
-      {/* MOBİL MENÜ */}
+      {/* MOBİL MENÜ - Kalın, Tok ve Büyük Harf */}
       <div className={`fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${nunito.className} ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="h-20 flex items-center px-6 border-b border-gray-100">
           <Image src="/logo.png" alt="Ela Teknoloji" width={140} height={38} className="object-contain" />
         </div>
 
         <div className="flex-1 overflow-y-auto py-6 px-6 space-y-6">
-          <Link href="/" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">Ana Sayfa</Link>
-          <Link href="/kurumsal" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">Kurumsal</Link>
+          <Link href="/" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">Ana Sayfa</Link>
+          <Link href="/kurumsal" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">Kurumsal</Link>
           
           <div className="flex flex-col">
-            <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex justify-between items-center text-xl font-extrabold tracking-wide text-gray-900 w-full focus:outline-none">
+            <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex justify-between items-center text-xl font-extrabold uppercase tracking-wide text-gray-900 w-full focus:outline-none">
               Hizmetlerimiz <span className={`text-sm text-[#df6e32] transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}>▼</span>
             </button>
             <div className={`overflow-hidden transition-all duration-300 flex flex-col ${isServicesOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
               <div className="flex flex-col space-y-4 pl-4 border-l-2 border-[#933c81]/30">
-                <Link href="/hizmetler" onClick={toggleMenu} className="text-[#df6e32] font-extrabold tracking-wide text-sm">Tüm Hizmetler →</Link>
+                <Link href="/hizmetler" onClick={toggleMenu} className="text-[#df6e32] font-extrabold uppercase tracking-wide text-sm">Tüm Hizmetler →</Link>
                 {services.map((service, index) => (
-                  <Link key={index} href={service.href} onClick={toggleMenu} className="text-gray-600 hover:text-[#933c81] font-bold tracking-wide text-sm">
+                  <Link key={index} href={service.href} onClick={toggleMenu} className="text-gray-600 hover:text-[#933c81] font-bold uppercase tracking-wider text-xs">
                     {service.name}
                   </Link>
                 ))}
@@ -114,14 +114,14 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/projeler" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">Projeler</Link>
-          <Link href="/basari-hikayeleri" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">Başarı Hikayeleri</Link>
-          <Link href="/blog" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">Blog</Link>
-          <Link href="/iletisim" onClick={toggleMenu} className="block text-xl font-extrabold tracking-wide text-gray-900">İletişim</Link>
+          <Link href="/projeler" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">Projeler</Link>
+          <Link href="/basari-hikayeleri" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">Başarı Hikayeleri</Link>
+          <Link href="/blog" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">Blog</Link>
+          <Link href="/iletisim" onClick={toggleMenu} className="block text-xl font-extrabold uppercase tracking-wide text-gray-900">İletişim</Link>
         </div>
 
         <div className="p-6 border-t border-gray-100 bg-gray-50">
-          <Link href="/teklif-al" onClick={toggleMenu} className="flex items-center justify-center w-full bg-gradient-to-r from-[#933c81] to-[#df6e32] text-white py-4 rounded-xl font-extrabold tracking-wide text-lg hover:shadow-lg transition-all">
+          <Link href="/teklif-al" onClick={toggleMenu} className="flex items-center justify-center w-full bg-gradient-to-r from-[#933c81] to-[#df6e32] text-white py-4 rounded-xl font-extrabold uppercase tracking-wider text-lg hover:shadow-lg transition-all">
             Proje Başlat
           </Link>
         </div>
