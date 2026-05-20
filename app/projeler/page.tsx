@@ -9,11 +9,18 @@ const projeler = [
     noFollow: true
   },
   {
-    isim: "Sobece",
-    link: "https://sobece.com",
-    gorsel: "/images/projeler/sobece.png",
+    isim: "Dwt Türkiye",
+    link: "https://www.dwt-turkiye.com",
+    gorsel: "/images/projeler/dwt.jpg",
+    kategori: "E-Ticaret",
+    noFollow: true
+  },
+  {
+    isim: "Vicom Energy",
+    link: "https://www.vicomenergy.com",
+    gorsel: "/images/projeler/vicom-ref.png",
     kategori: "Kurumsal",
-    noFollow: false
+    noFollow: true
   },
 ];
 
