@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Not: Eğer asıl domain .net ise burayı .net olarak değiştirmeyi unutma.
   const baseUrl = 'https://www.webtasarimiyapanfirmalar.com';
 
   // Sitedeki mevcut rotalarımız
@@ -15,7 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hizmetler/e-ticaret',
     '/hizmetler/saas-crm',
     '/basari-hikayeleri',
-    '/basari-hikayeleri/tonermasters',
+    '/basari-hikayeleri/toner-masters', // Hatalı yol düzeltildi
+    '/basari-hikayeleri/dwt-turkiye',   // Yeni eklendi
+    '/basari-hikayeleri/vicom-energy',  // Yeni eklendi
     '/projeler',
     '/blog',
     '/iletisim',

@@ -2,6 +2,7 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import ScrollToTop from './components/ScrollToTop'; // Yukarı Çık butonu import edildi
 
 export const metadata = {
   title: 'Ela Teknoloji | Web Tasarımı Yapan Firmalar',
@@ -23,6 +24,7 @@ export default function RootLayout({
         </main>
         
         <FloatingActions />
+        <ScrollToTop /> {/* Sistem geneli eklendi */}
         <Footer />
       </body>
     </html>
