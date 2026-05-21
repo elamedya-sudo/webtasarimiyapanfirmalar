@@ -6,9 +6,26 @@ export default function TonermastersCase() {
       <article className="max-w-4xl mx-auto space-y-16">
         
         {/* Giriş ve Mücadele */}
-        <header className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white">Tonermasters: 15 Günde Dijital İflasın Eşiğinden Global Liderliğe</h1>
-          <p className="text-xl text-gray-400 italic">"Alman yazılım firması iflas etti, kodları vermiyorlar. 15 gün içinde taşınmanız lazım." - İşte o meşhur sabah aramasıyla başlayan 15 günlük yazılım operasyonumuzun hikayesi.</p>
+        <header className="space-y-8">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white">Tonermasters: 15 Günde Dijital İflasın Eşiğinden Global Liderliğe</h1>
+            <p className="text-xl text-gray-400 italic">"Alman yazılım firması iflas etti, kodları vermiyorlar. 15 gün içinde taşınmanız lazım." - İşte o meşhur sabah aramasıyla başlayan 15 günlük yazılım operasyonumuzun hikayesi.</p>
+          </div>
+          
+          {/* YENİ EKLENEN CANLI SİTE BUTONU */}
+          <div>
+            <a 
+              href="https://www.tonermasters.com.au" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center justify-center bg-gradient-to-r from-[#933c81] to-[#df6e32] text-white font-extrabold tracking-wide py-3 px-8 rounded-xl shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1 transition-all duration-300"
+            >
+              Canlı Siteyi İncele
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
         </header>
 
         {/* 1. Bölüm: 15 Günlük Göç Operasyonu */}
