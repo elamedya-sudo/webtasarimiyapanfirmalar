@@ -2,7 +2,8 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
-import ScrollToTop from './components/ScrollToTop'; // Yukarı Çık butonu import edildi
+import ScrollToTop from './components/ScrollToTop';
+import Script from 'next/script'; // 1. YENİ EKLENDİ: Next.js Script bileşeni
 
 export const metadata = {
   title: 'Ela Teknoloji | Web Tasarımı Yapan Firmalar',
@@ -17,6 +18,22 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className="flex flex-col min-h-screen">
+        
+        {/* --- GOOGLE ANALYTICS BAŞLANGIÇ --- */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-GZ6KZFJL4V`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GZ6KZFJL4V');
+          `}
+        </Script>
+        {/* --- GOOGLE ANALYTICS BİTİŞ --- */}
+
         <Header />
         
         <main className="flex-grow">
@@ -24,7 +41,7 @@ export default function RootLayout({
         </main>
         
         <FloatingActions />
-        <ScrollToTop /> {/* Sistem geneli eklendi */}
+        <ScrollToTop />
         <Footer />
       </body>
     </html>
