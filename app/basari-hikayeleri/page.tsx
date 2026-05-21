@@ -8,7 +8,7 @@ export default function BasariHikayeleriPage() {
       title: "Tonermasters: Bot Koruması ve %25 Bütçe Verimliliği",
       excerpt: "Avustralya merkezli dev e-ticaret sitesinde PayPal sahte sipariş botlarını temizledik, altyapıyı hızlandırdık ve 9 aydır atıl duran Google Ads bütçesini optimize ettik.",
       metrics: ["%300 Hız Artışı", "Bot Saldırıları Sıfırlandı", "Yüksek ROAS"],
-      href: "/basari-hikayeleri/toner-masters" // Klasör yoluna tam uyumlu hale getirildi
+      href: "/basari-hikayeleri/tonermasters" // Klasör yoluna tam uyumlu hale getirildi
     },
     {
       title: "DWT Türkiye: Alman Endüstri Devinin Dijital Altyapı Entegrasyonu",

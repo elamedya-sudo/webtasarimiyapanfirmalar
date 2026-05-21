@@ -4,7 +4,7 @@ const projeler = [
   // --- İLK 3 KUTU (SABİT) ---
   {
     isim: "Tonermasters",
-    link: "/basari-hikayeleri/toner-masters", 
+    link: "/basari-hikayeleri/tonermasters", 
     gorsel: "/images/projeler/tonermasters.png",
     kategori: "Başarı Hikayesi", 
     noFollow: false,
