@@ -1,9 +1,9 @@
 import './globals.css'; 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import FloatingActions from './components/FloatingActions';
-import ScrollToTop from './components/ScrollToTop';
-import Script from 'next/script'; // 1. YENİ EKLENDİ: Next.js Script bileşeni
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
+import ScrollToTop from '@/components/ScrollToTop';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Ela Teknoloji | Web Tasarımı Yapan Firmalar',

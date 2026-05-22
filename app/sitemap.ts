@@ -1,13 +1,15 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Not: Eğer asıl domain .net ise burayı .net olarak değiştirmeyi unutma.
   const baseUrl = 'https://www.webtasarimiyapanfirmalar.com';
 
-  // Sitedeki mevcut rotalarımız
+  // Projemizdeki tüm aktif ve gerçek sayfaların listesi
   const routes = [
-    '',
-    '/kurumsal',
+    '', // Ana sayfa
+    '/kurumsal/hakkimizda',
+    '/kurumsal/misyon-vizyon',
+    '/kurumsal/ekibimiz',
+    '/kurumsal/nerelerdeyiz',
     '/hizmetler',
     '/hizmetler/nextjs-headless',
     '/hizmetler/dijital-kimlik',
@@ -16,9 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hizmetler/e-ticaret',
     '/hizmetler/saas-crm',
     '/basari-hikayeleri',
-    '/basari-hikayeleri/toner-masters', // Hatalı yol düzeltildi
-    '/basari-hikayeleri/dwt-turkiye',   // Yeni eklendi
-    '/basari-hikayeleri/vicom-energy',  // Yeni eklendi
+    '/basari-hikayeleri/toner-masters',
+    '/basari-hikayeleri/dwt-turkiye',
+    '/basari-hikayeleri/vicom-energy',
     '/projeler',
     '/blog',
     '/iletisim',
@@ -29,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    // Ana sayfa önceliği 1.0, alt sayfalar 0.8
     priority: route === '' ? 1.0 : 0.8,
   }));
 
