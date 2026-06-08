@@ -98,7 +98,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-white text-center mb-12">Başarı Hikayeleri</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {[ { title: "Tonermasters", link: "/basari-hikayeleri/toner-masters" }, { title: "DWT Türkiye", link: "/basari-hikayeleri/dwt-turkiye" }, { title: "Vicom Energy", link: "/basari-hikayeleri/vicom-energy" } ].map((h, i) => (
+              {[ { title: "Tonermasters", link: "/basari-hikayeleri/tonermasters" }, { title: "DWT Türkiye", link: "/basari-hikayeleri/dwt-turkiye" }, { title: "Vicom Energy", link: "/basari-hikayeleri/vicom-energy" } ].map((h, i) => (
                 <div key={i} className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-[#df6e32]/50 transition-all text-center">
                     <h3 className="text-xl font-bold text-white mb-4">{h.title}</h3>
                     <Link href={h.link} className="text-[#df6e32] font-bold">Detayları İncele →</Link>
